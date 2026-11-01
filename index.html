@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+
+  <title>EDEX | Timer Challenge</title>
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="screen-page">
+
+  <div class="glow glow-left"></div>
+  <div class="glow glow-right"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">✦</span>
+      <span>
+        EDEX
+        <small>EXPERIENCE</small>
+      </span>
+    </div>
+
+    <div class="connection">
+      <span class="connection-dot"></span>
+      <span id="connection">CONNECTING</span>
+    </div>
+  </header>
+
+  <main class="center-content">
+    <section class="hero">
+
+      <p class="eyebrow">
+        ✦ EDEX EXPERIENCE ✦
+      </p>
+
+      <h1>Timer <em>Challenge.</em></h1>
+
+      <p id="subtitle" class="subheading">
+        Ready when you are.
+      </p>
+
+      <!-- LARGE COUNTDOWN TIMER -->
+
+      <div class="clock" id="clock">
+        <svg class="clock-svg"
+             viewBox="0 0 260 260">
+
+          <circle
+            class="clock-track"
+            cx="130"
+            cy="130"
+            r="109">
+          </circle>
+
+          <circle
+            class="clock-progress"
+            id="progress"
+            cx="130"
+            cy="130"
+            r="109">
+          </circle>
+
+        </svg>
+
+        <div class="clock-center">
+          <strong id="timeText">02:00</strong>
+          <span id="timerStatus">STANDBY</span>
+        </div>
+      </div>
+
+      <p class="challenge-message"
+         id="challengeMessage">
+        WAITING FOR THE NEXT ROUND
+      </p>
+
+      <!-- ONLY ORGANIZER SEES THESE BUTTONS -->
+
+      <section class="operator-controls"
+               id="operatorControls"
+               hidden>
+
+        <div class="control-heading">
+          <span>ORGANIZER CONTROLS</span>
+          <span id="roundLabel">ROUND 0</span>
+        </div>
+
+        <button class="btn btn-start"
+                id="startBtn">
+          ▶ Start Timer / Next Round
+        </button>
+
+        <div class="result-grid">
+
+          <button class="btn btn-win"
+                  id="winBtn">
+            ✓ WON 🍫 +1
+          </button>
+
+          <button class="btn btn-fail"
+                  id="failBtn">
+            ✕ FAILED
+          </button>
+
+        </div>
+
+        <button class="text-button"
+                id="resetRoundBtn">
+          Reset current timer (no result)
+        </button>
+
+        <p class="micro-copy">
+          One win = one chocolate.
+          Failed = zero chocolates.
+        </p>
+
+      </section>
+
+      <p id="actionMessage"
+         class="action-message">
+      </p>
+
+    </section>
+
+    <!-- ORGANIZER SIGN IN -->
+
+    <details class="access" id="access">
+      <summary>Organizer access</summary>
+
+      <form id="loginForm" class="login-form">
+
+        <label>
+          Email
+          <input type="email"
+                 id="email"
+                 autocomplete="username"
+                 required>
+        </label>
+
+        <label>
+          Password
+          <input type="password"
+                 id="password"
+                 autocomplete="current-password"
+                 required>
+        </label>
+
+        <button type="submit"
+                class="btn btn-login">
+          Unlock Controls
+        </button>
+
+        <p id="loginError"
+           class="form-error"></p>
+
+      </form>
+    </details>
+
+    <div class="signed-in"
+         id="signedIn"
+         hidden>
+
+      <span>Organizer mode active</span>
+
+      <a href="admin.html">
+        Admin Dashboard
+      </a>
+
+      <button class="text-button"
+              id="signOutBtn">
+        Sign Out
+      </button>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    EDEX EXPERIENCE ✦ MAKE EVERY SECOND COUNT
+  </footer>
+
+  <!-- FIREBASE -->
+
+  <script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore-compat.js"></script>
+
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
