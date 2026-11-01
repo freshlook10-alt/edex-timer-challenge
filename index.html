@@ -2,197 +2,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EDEX | Timer Challenge</title>
 
-  <title>EDEX | Timer Challenge</title>
+<link rel="stylesheet" href="style.css">
 
-  <link rel="preconnect"
-        href="https://fonts.googleapis.com">
-
-  <link rel="stylesheet" href="style.css">
+<style>
+.edex-nav {
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:12px 20px
+}
+.edex-nav a {
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  padding:12px 17px;
+  min-height:45px;
+  border:1px solid #856aa3;
+  border-radius:12px;
+  background:#46345c;
+  color:#f9edff;
+  font:800 13px Arial,sans-serif;
+  text-decoration:none;
+  text-align:center
+}
+.edex-nav a.gold-link {
+  background:#f7d794;
+  border-color:#f7d794;
+  color:#302113
+}
+@media(max-width:600px) {
+  .edex-nav a{flex:1}
+}
+</style>
 </head>
 
 <body class="screen-page">
 
-  <div class="glow glow-left"></div>
-  <div class="glow glow-right"></div>
+<div class="glow glow-left"></div>
+<div class="glow glow-right"></div>
 
-  <header class="topbar">
-    <div class="brand">
-      <span class="brand-mark">✦</span>
-      <span>
-        EDEX
-        <small>EXPERIENCE</small>
-      </span>
-    </div>
+<header class="topbar">
 
-    <div class="connection">
-      <span class="connection-dot"></span>
-      <span id="connection">CONNECTING</span>
-    </div>
-  </header>
+  <div class="brand">
+    <span class="brand-mark">✦</span>
 
-  <main class="center-content">
-    <section class="hero">
+    <span>
+      EDEX
+      <small>EXPERIENCE</small>
+    </span>
+  </div>
 
-      <p class="eyebrow">
-        ✦ EDEX EXPERIENCE ✦
-      </p>
+  <div class="connection">
+    <span class="connection-dot"></span>
+    <span id="connection">CONNECTING</span>
+  </div>
 
-      <h1>Timer <em>Challenge.</em></h1>
+</header>
 
-      <p id="subtitle" class="subheading">
-        Ready when you are.
-      </p>
+<!-- NAVIGATION -->
 
-      <!-- LARGE COUNTDOWN TIMER -->
+<nav class="edex-nav">
 
-      <div class="clock" id="clock">
-        <svg class="clock-svg"
-             viewBox="0 0 260 260">
+  <a class="gold-link"
+     href="admin.html">
+    ← Back to Timer Admin
+  </a>
 
-          <circle
-            class="clock-track"
-            cx="130"
-            cy="130"
-            r="109">
-          </circle>
+  <a href="https://freshlook10-alt.github.io/arabic-choclate-quiz/admin.html">
+    ← Main EDEX Admin
+  </a>
 
-          <circle
-            class="clock-progress"
-            id="progress"
-            cx="130"
-            cy="130"
-            r="109">
-          </circle>
+</nav>
 
-        </svg>
+<main class="center-content">
 
-        <div class="clock-center">
-          <strong id="timeText">02:00</strong>
-          <span id="timerStatus">STANDBY</span>
-        </div>
+  <section class="hero">
+
+    <p class="eyebrow">
+      ✦ EDEX EXPERIENCE ✦
+    </p>
+
+    <h1>Timer <em>Challenge.</em></h1>
+
+    <p id="subtitle" class="subheading">
+      Ready when you are.
+    </p>
+
+    <!-- COUNTDOWN -->
+
+    <div class="clock" id="clock">
+
+      <svg class="clock-svg"
+           viewBox="0 0 260 260">
+
+        <circle class="clock-track"
+                cx="130"
+                cy="130"
+                r="109"></circle>
+
+        <circle class="clock-progress"
+                id="progress"
+                cx="130"
+                cy="130"
+                r="109"></circle>
+      </svg>
+
+      <div class="clock-center">
+        <strong id="timeText">02:00</strong>
+        <span id="timerStatus">STANDBY</span>
       </div>
 
-      <p class="challenge-message"
-         id="challengeMessage">
-        WAITING FOR THE NEXT ROUND
-      </p>
+    </div>
 
-      <!-- ONLY ORGANIZER SEES THESE BUTTONS -->
+    <p class="challenge-message"
+       id="challengeMessage">
+      WAITING FOR THE NEXT ROUND
+    </p>
 
-      <section class="operator-controls"
-               id="operatorControls"
-               hidden>
+    <!-- ORGANIZER CONTROLS -->
 
-        <div class="control-heading">
-          <span>ORGANIZER CONTROLS</span>
-          <span id="roundLabel">ROUND 0</span>
-        </div>
+    <section class="operator-controls"
+             id="operatorControls"
+             hidden>
 
-        <button class="btn btn-start"
-                id="startBtn">
-          ▶ Start Timer / Next Round
+      <div class="control-heading">
+        <span>ORGANIZER CONTROLS</span>
+        <span id="roundLabel">ROUND 0</span>
+      </div>
+
+      <button class="btn btn-start"
+              id="startBtn">
+        ▶ Start Timer / Next Round
+      </button>
+
+      <div class="result-grid">
+
+        <button class="btn btn-win"
+                id="winBtn">
+          ✓ WON 🍫 +1
         </button>
 
-        <div class="result-grid">
-
-          <button class="btn btn-win"
-                  id="winBtn">
-            ✓ WON 🍫 +1
-          </button>
-
-          <button class="btn btn-fail"
-                  id="failBtn">
-            ✕ FAILED
-          </button>
-
-        </div>
-
-        <button class="text-button"
-                id="resetRoundBtn">
-          Reset current timer (no result)
+        <button class="btn btn-fail"
+                id="failBtn">
+          ✕ FAILED
         </button>
 
-        <p class="micro-copy">
-          One win = one chocolate.
-          Failed = zero chocolates.
-        </p>
+      </div>
 
-      </section>
+      <button class="text-button"
+              id="resetRoundBtn">
+        Reset current timer (no result)
+      </button>
 
-      <p id="actionMessage"
-         class="action-message">
+      <p class="micro-copy">
+        One win = one chocolate.
+        Failed = zero chocolates.
       </p>
 
     </section>
 
-    <!-- ORGANIZER SIGN IN -->
+    <p id="actionMessage"
+       class="action-message"></p>
 
-    <details class="access" id="access">
-      <summary>Organizer access</summary>
+  </section>
 
-      <form id="loginForm" class="login-form">
+  <!-- ORGANIZER SIGN IN -->
 
-        <label>
-          Email
-          <input type="email"
-                 id="email"
-                 autocomplete="username"
-                 required>
-        </label>
+  <details class="access" id="access">
+    <summary>Organizer access</summary>
 
-        <label>
-          Password
-          <input type="password"
-                 id="password"
-                 autocomplete="current-password"
-                 required>
-        </label>
+    <form id="loginForm"
+          class="login-form">
 
-        <button type="submit"
-                class="btn btn-login">
-          Unlock Controls
-        </button>
+      <label>
+        Email
+        <input type="email"
+               id="email"
+               autocomplete="username"
+               required>
+      </label>
 
-        <p id="loginError"
-           class="form-error"></p>
+      <label>
+        Password
+        <input type="password"
+               id="password"
+               autocomplete="current-password"
+               required>
+      </label>
 
-      </form>
-    </details>
-
-    <div class="signed-in"
-         id="signedIn"
-         hidden>
-
-      <span>Organizer mode active</span>
-
-      <a href="admin.html">
-        Admin Dashboard
-      </a>
-
-      <button class="text-button"
-              id="signOutBtn">
-        Sign Out
+      <button type="submit"
+              class="btn btn-login">
+        Unlock Controls
       </button>
 
-    </div>
-  </main>
+      <p id="loginError"
+         class="form-error"></p>
 
-  <footer class="footer">
-    EDEX EXPERIENCE ✦ MAKE EVERY SECOND COUNT
-  </footer>
+    </form>
+  </details>
 
-  <!-- FIREBASE -->
+  <!-- SIGNED-IN ORGANIZER -->
 
-  <script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore-compat.js"></script>
+  <div class="signed-in"
+       id="signedIn"
+       hidden>
 
-  <script src="firebase-config.js"></script>
-  <script src="app.js"></script>
+    <span>Organizer mode active</span>
+
+    <a href="admin.html">
+      Admin Dashboard
+    </a>
+
+    <button class="text-button"
+            id="signOutBtn">
+      Sign Out
+    </button>
+
+  </div>
+
+</main>
+
+<footer class="footer">
+  EDEX EXPERIENCE ✦ MAKE EVERY SECOND COUNT
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>
