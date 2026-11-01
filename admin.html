@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+
+  <title>EDEX | Timer Challenge Admin</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="admin-page">
+
+  <div class="glow glow-left"></div>
+  <div class="glow glow-right"></div>
+
+  <header class="topbar admin-topbar">
+
+    <a href="index.html" class="brand">
+      <span class="brand-mark">✦</span>
+      <span>
+        EDEX
+        <small>CONTROL CENTER</small>
+      </span>
+    </a>
+
+    <nav class="nav-tabs">
+
+      <a id="quizAdminLink" href="#" hidden>
+        Quiz Admin ↗
+      </a>
+
+      <a id="ballAdminLink" href="#" hidden>
+        Ball Game Admin ↗
+      </a>
+
+      <a href="admin.html" class="active">
+        Timer Challenge
+      </a>
+
+      <a href="index.html" target="_blank">
+        Live Screen ↗
+      </a>
+
+    </nav>
+  </header>
+
+  <main class="dashboard-wrap">
+
+    <!-- LOGIN SCREEN -->
+
+    <section id="adminLogin"
+             class="panel login-panel">
+
+      <div class="login-glyph">✦</div>
+
+      <p class="eyebrow">
+        PRIVATE ORGANIZER ACCESS
+      </p>
+
+      <h1>Control <em>Center.</em></h1>
+
+      <p class="muted">
+        Use your existing EDEX organizer account.
+      </p>
+
+      <form id="loginForm" class="login-form">
+
+        <label>
+          Email
+          <input id="email"
+                 type="email"
+                 autocomplete="username"
+                 required>
+        </label>
+
+        <label>
+          Password
+          <input id="password"
+                 type="password"
+                 autocomplete="current-password"
+                 required>
+        </label>
+
+        <button class="btn btn-start"
+                type="submit">
+          Open Dashboard
+        </button>
+
+        <p id="loginError"
+           class="form-error"></p>
+
+      </form>
+    </section>
+
+    <!-- ADMIN CONTENT -->
+
+    <section id="adminContent" hidden>
+
+      <div class="dashboard-title">
+
+        <div>
+          <p class="eyebrow">
+            LIVE CHALLENGE MANAGEMENT
+          </p>
+
+          <h1>Timer <em>Studio.</em></h1>
+
+          <p class="muted">
+            Every successful round earns one chocolate.
+          </p>
+        </div>
+
+        <button class="text-button"
+                id="signOutBtn">
+          Sign Out
+        </button>
+
+      </div>
+
+      <!-- STATISTICS -->
+
+      <section class="stats-grid">
+
+        <div class="stat panel">
+          <span>ROUNDS PLAYED</span>
+          <strong id="played">0</strong>
+          <small>Total recorded</small>
+        </div>
+
+        <div class="stat panel">
+          <span>WON</span>
+          <strong id="wins">0</strong>
+          <small>Successful rounds</small>
+        </div>
+
+        <div class="stat panel">
+          <span>FAILED</span>
+          <strong id="losses">0</strong>
+          <small>Unsuccessful rounds</small>
+        </div>
+
+        <div class="stat panel">
+          <span>CHOCOLATES</span>
+          <strong id="chocolates">0</strong>
+          <small>Given to winners 🍫</small>
+        </div>
+
+      </section>
+
+      <div class="dashboard-grid">
+
+        <!-- ADMIN TIMER -->
+
+        <section class="panel control-panel">
+
+          <div class="section-label">
+            01 / LIVE TIMER
+          </div>
+
+          <p class="muted">
+            Synchronized with the visitor screen.
+          </p>
+
+          <div class="admin-timer"
+               id="adminTimer">
+            02:00
+          </div>
+
+          <div class="small-state"
+               id="adminStage">
+            STANDBY
+          </div>
+
+          <button class="btn btn-start"
+                  id="startBtn">
+            ▶ Start Timer / Next Round
+          </button>
+
+          <div class="result-grid">
+
+            <button class="btn btn-win"
+                    id="winBtn">
+              ✓ WON 🍫
+            </button>
+
+            <button class="btn btn-fail"
+                    id="failBtn">
+              ✕ FAILED
+            </button>
+
+          </div>
+
+          <button class="text-button reset-inline"
+                  id="resetRoundBtn">
+            Reset Current Round
+          </button>
+
+        </section>
+
+        <div class="side-panels">
+
+          <!-- TIMER SETTINGS -->
+
+          <section class="panel settings-panel">
+
+            <div class="section-label">
+              02 / TIMER SETTINGS
+            </div>
+
+            <label>
+              Duration (MM:SS)
+              <input
+                id="durationInput"
+                type="text"
+                value="02:00"
+                maxlength="5"
+                placeholder="02:00">
+            </label>
+
+            <p class="sample-times">
+              Examples: 01:30, 02:00, 02:30
+            </p>
+
+            <button class="btn btn-outline"
+                    id="saveDurationBtn">
+              Save Timer Duration
+            </button>
+
+            <small class="muted">
+              Changes apply to the next round.
+            </small>
+
+          </section>
+
+          <!-- CHOCOLATE STOCK -->
+
+          <section class="panel settings-panel">
+
+            <div class="section-label">
+              03 / CHOCOLATE STOCK
+            </div>
+
+            <div class="inventory">
+
+              <div>
+                <span>TOTAL STOCK</span>
+                <strong id="stock">—</strong>
+              </div>
+
+              <div>
+                <span>REMAINING</span>
+                <strong id="remainingStock">—</strong>
+              </div>
+
+            </div>
+
+            <label>
+              Total chocolates available
+              <input
+                id="stockInput"
+                type="number"
+                min="0"
+                step="1"
+                placeholder="e.g. 200">
+            </label>
+
+            <button class="btn btn-outline"
+                    id="stockBtn">
+              Save Chocolate Stock
+            </button>
+
+            <small class="muted">
+              Every win uses one chocolate.
+            </small>
+
+          </section>
+
+        </div>
+      </div>
+
+      <!-- RECORD HISTORY -->
+
+      <section class="panel history-panel">
+
+        <div class="history-heading">
+
+          <div>
+            <div class="section-label">
+              04 / CHOCOLATE RECORDS
+            </div>
+
+            <p class="muted">
+              All recorded Won and Failed results.
+            </p>
+          </div>
+
+          <div class="history-actions">
+
+            <button class="btn btn-outline btn-sm"
+                    id="csvBtn">
+              ↓ Export CSV
+            </button>
+
+            <button class="btn btn-danger btn-sm"
+                    id="resetHistoryBtn">
+              Reset All Played Records
+            </button>
+
+          </div>
+
+        </div>
+
+        <div class="table-scroll">
+          <table>
+
+            <thead>
+              <tr>
+                <th>TIME</th>
+                <th>ROUND</th>
+                <th>RESULT</th>
+                <th>CHOCOLATE</th>
+                <th>TIME USED</th>
+              </tr>
+            </thead>
+
+            <tbody id="records">
+              <tr>
+                <td colspan="5">
+                  No records yet
+                </td>
+              </tr>
+            </tbody>
+
+          </table>
+        </div>
+
+      </section>
+
+      <p id="actionMessage"
+         class="action-message admin-message">
+      </p>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    EDEX EXPERIENCE ✦ TIMER CHALLENGE ADMIN
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore-compat.js"></script>
+
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
