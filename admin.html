@@ -1,24 +1,33 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#090b20">
-<title>EDEX | Timer Admin</title>
+<meta name="viewport"
+      content="width=device-width,initial-scale=1">
 
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#090b20">
+
+<title>EDEX | Main Admin Control Center</title>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
+  rel="stylesheet">
+
+<!-- KEEP THE EXISTING TIMER STYLES -->
 <link rel="stylesheet" href="style.css">
 
 <style>
-/* SAME THREE TABS AS QUIZ ADMIN */
+
+/* FOUR GAME ADMIN TABS */
 
 .edex-tabs {
-  width:min(1140px,calc(100% - 40px));
+  width:min(1140px,calc(100% - 36px));
   display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:12px;
-  margin:12px auto 19px;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+  margin:20px auto 18px;
   position:relative;
   z-index:10;
 }
@@ -27,34 +36,47 @@
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
-  min-height:54px;
-  padding:13px 10px;
+  min-height:60px;
+  padding:12px 10px;
+
   background:#49345f;
-  border:1px solid #81659d;
+  border:1px solid #8063a0;
   border-radius:13px;
-  color:#f7ecff;
+
+  color:#fff0ff;
+  text-align:center;
   font:900 13px Outfit,Arial,sans-serif;
   text-decoration:none;
+
+  transition:.2s;
 }
 
 .edex-tabs a:hover {
-  background:#675080;
+  background:#685080;
+  transform:translateY(-2px);
 }
+
+/* CURRENT ADMIN IS GOLD */
 
 .edex-tabs a.active {
-  background:linear-gradient(110deg,#ffe2a1,#f4ca74);
-  border-color:#ffe5a9;
-  color:#291b0c;
-  box-shadow:0 4px 20px #ffd77f30;
+  background:linear-gradient(
+    110deg,
+    #ffe3a2,
+    #efc16d
+  );
+
+  border-color:#ffe3a2;
+  color:#2b1d0d;
+
+  box-shadow:0 5px 23px #ffd77f2c;
 }
 
-/* VISITOR/ORGANIZER BUTTON */
+/* OPEN VISITOR SCREEN */
 
 .visitor-action {
   max-width:1140px;
-  padding:0 20px;
   margin:0 auto 25px;
+  padding:0 20px;
   text-align:center;
   position:relative;
   z-index:10;
@@ -62,15 +84,23 @@
 
 .visitor-action a {
   display:inline-flex;
-  align-items:center;
   justify-content:center;
-  width:min(100%,470px);
+  align-items:center;
+
+  width:min(100%,500px);
   min-height:54px;
-  padding:14px 18px;
-  border:1px solid #ffe3a5;
+
+  padding:14px 20px;
+  border:1px solid #ffe2a2;
   border-radius:14px;
-  background:linear-gradient(110deg,#f7d995,#e9b961);
-  color:#251808;
+
+  background:linear-gradient(
+    110deg,
+    #ffe5a8,
+    #edc16b
+  );
+
+  color:#261908;
   font:900 15px Outfit,Arial,sans-serif;
   text-decoration:none;
 }
@@ -79,14 +109,32 @@
   filter:brightness(1.08);
 }
 
-@media(max-width:650px) {
-  .edex-tabs { gap:6px; }
+/* SMALL SCREEN */
+
+@media(max-width:850px) {
+
+  .edex-tabs {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
   .edex-tabs a {
-    min-height:48px;
-    padding:10px 4px;
-    font-size:10px;
+    min-height:53px;
+    font-size:12px;
   }
 }
+
+@media(max-width:450px) {
+
+  .edex-tabs {
+    gap:7px;
+  }
+
+  .edex-tabs a {
+    font-size:11px;
+    padding:10px 5px;
+  }
+}
+
 </style>
 </head>
 
@@ -95,90 +143,146 @@
 <div class="glow glow-left"></div>
 <div class="glow glow-right"></div>
 
+<!-- MAIN EDEX HEADER -->
+
 <header class="topbar admin-topbar">
+
   <a class="brand" href="admin.html">
-    <span class="brand-mark">✦</span>
+
+    <span class="brand-mark">
+      ✦
+    </span>
+
     <span>
       EDEX
       <small>CONTROL CENTER</small>
     </span>
+
   </a>
+
 </header>
 
-<!-- THREE CLICKABLE ADMIN TABS -->
+<!-- ALL FOUR GAMES -->
 
 <nav class="edex-tabs"
-     aria-label="EDEX Admin navigation">
+     aria-label="EDEX Admin Navigation">
 
-  <a href="https://freshlook10-alt.github.io/arabic-choclate-quiz/admin.html">
+  <!-- FIRST GAME -->
+
+  <a
+    href="https://freshlook10-alt.github.io/arabic-choclate-quiz/admin.html">
+
     ✦ Quiz Admin
+
   </a>
 
-  <a href="https://freshlook10-alt.github.io/Edex-Word-Portal/admin.html">
+  <!-- SECOND GAME -->
+
+  <a
+    href="https://freshlook10-alt.github.io/Edex-Word-Portal/admin.html">
+
     📦 Guess the Item in the Box
+
   </a>
 
-  <a class="active"
-     aria-current="page"
-     href="https://freshlook10-alt.github.io/edex-timer-challenge/admin.html">
+  <!-- THIRD GAME: CURRENT PAGE -->
+
+  <a
+    class="active"
+    aria-current="page"
+    href="https://freshlook10-alt.github.io/edex-timer-challenge/admin.html">
+
     ⏱ Timer Admin
+
+  </a>
+
+  <!-- FOURTH GAME: NEW MEMORY SHUFFLE -->
+
+  <a
+    href="https://freshlook10-alt.github.io/Edex-Word-Portal/memory-admin.html">
+
+    🧠 Memory Shuffle Admin
+
   </a>
 
 </nav>
 
-<!-- OPEN TIMER VISITOR SCREEN IN NEW TAB -->
+<!-- TIMER VISITOR BUTTON -->
 
 <div class="visitor-action">
-  <a href="index.html"
-     target="_blank"
-     rel="noopener noreferrer">
+
+  <a
+    href="https://freshlook10-alt.github.io/edex-timer-challenge/"
+    target="_blank"
+    rel="noopener noreferrer">
+
     ↗ OPEN TIMER VISITOR / ORGANIZER
+
   </a>
+
 </div>
+
+<!-- MAIN DASHBOARD -->
 
 <main class="dashboard-wrap">
 
-  <!-- LOGIN -->
+  <!-- ORGANIZER LOGIN -->
 
   <section id="adminLogin"
            class="panel login-panel">
 
-    <div class="login-glyph">✦</div>
+    <div class="login-glyph">
+      ✦
+    </div>
 
     <p class="eyebrow">
       PRIVATE ORGANIZER ACCESS
     </p>
 
-    <h1>Control <em>Center.</em></h1>
+    <h1>
+      Control <em>Center.</em>
+    </h1>
 
     <p class="muted">
-      Sign in with your existing
-      EDEX organizer account.
+      Sign in using your EDEX
+      organizer account.
     </p>
 
-    <form id="loginForm" class="login-form">
+    <form id="loginForm"
+          class="login-form">
 
       <label>
+
         Email
-        <input id="email"
-               type="email"
-               autocomplete="username"
-               placeholder="Organizer email"
-               required>
+
+        <input
+          id="email"
+          type="email"
+          autocomplete="username"
+          placeholder="Organizer email"
+          required>
+
       </label>
 
       <label>
+
         Password
-        <input id="password"
-               type="password"
-               autocomplete="current-password"
-               placeholder="Password"
-               required>
+
+        <input
+          id="password"
+          type="password"
+          autocomplete="current-password"
+          placeholder="Password"
+          required>
+
       </label>
 
-      <button class="btn btn-start"
-              type="submit">
+      <button
+        class="btn btn-start"
+        type="submit">
+
         Open Dashboard
+
       </button>
 
       <p id="loginError"
@@ -189,66 +293,105 @@
 
   </section>
 
-  <!-- TIMER DASHBOARD -->
+  <!-- TIMER ADMIN -->
 
   <section id="adminContent" hidden>
 
     <div class="dashboard-title">
 
       <div>
+
         <p class="eyebrow">
           LIVE CHALLENGE MANAGEMENT
         </p>
 
-        <h1>Timer <em>Studio.</em></h1>
+        <h1>
+          Timer <em>Studio.</em>
+        </h1>
 
         <p class="muted">
-          Manage countdown rounds
+          Manage Timer rounds
           and chocolate rewards.
         </p>
+
       </div>
 
-      <button id="signOutBtn"
-              class="text-button"
-              type="button">
+      <button
+        class="text-button"
+        id="signOutBtn"
+        type="button">
+
         Sign Out
+
       </button>
 
     </div>
 
-    <!-- GAME STATISTICS -->
+    <!-- STATISTICS -->
 
     <section class="stats-grid">
 
       <div class="stat panel">
+
         <span>ROUNDS PLAYED</span>
-        <strong id="played">0</strong>
-        <small>Total recorded</small>
+
+        <strong id="played">
+          0
+        </strong>
+
+        <small>
+          Total recorded
+        </small>
+
       </div>
 
       <div class="stat panel">
+
         <span>WON</span>
-        <strong id="wins">0</strong>
-        <small>Successful rounds</small>
+
+        <strong id="wins">
+          0
+        </strong>
+
+        <small>
+          Successful rounds
+        </small>
+
       </div>
 
       <div class="stat panel">
+
         <span>FAILED</span>
-        <strong id="losses">0</strong>
-        <small>Unsuccessful rounds</small>
+
+        <strong id="losses">
+          0
+        </strong>
+
+        <small>
+          Unsuccessful rounds
+        </small>
+
       </div>
 
       <div class="stat panel">
+
         <span>CHOCOLATES</span>
-        <strong id="chocolates">0</strong>
-        <small>Given to winners 🍫</small>
+
+        <strong id="chocolates">
+          0
+        </strong>
+
+        <small>
+          Given to winners 🍫
+        </small>
+
       </div>
 
     </section>
 
-    <div class="dashboard-grid">
+    <!-- LIVE TIMER AND SETTINGS -->
 
-      <!-- LIVE COUNTDOWN -->
+    <div class="dashboard-grid">
 
       <section class="panel control-panel">
 
@@ -257,53 +400,79 @@
         </div>
 
         <p class="muted">
-          The Visitor/Organizer screen
-          shows the same live timer.
+          Changes appear on the
+          Visitor / Organizer screen.
         </p>
 
-        <div id="adminTimer"
-             class="admin-timer">
+        <div
+          class="admin-timer"
+          id="adminTimer">
+
           02:00
+
         </div>
 
-        <div id="adminStage"
-             class="small-state">
+        <div
+          class="small-state"
+          id="adminStage">
+
           STANDBY
+
         </div>
 
-        <button id="startBtn"
-                class="btn btn-start"
-                type="button">
+        <!-- START TIMER -->
+
+        <button
+          class="btn btn-start"
+          id="startBtn"
+          type="button">
+
           ▶ Start Timer / Next Round
+
         </button>
+
+        <!-- WON AND FAILED -->
 
         <div class="result-grid">
 
-          <button id="winBtn"
-                  class="btn btn-win"
-                  type="button">
+          <button
+            class="btn btn-win"
+            id="winBtn"
+            type="button">
+
             ✓ WON 🍫
+
           </button>
 
-          <button id="failBtn"
-                  class="btn btn-fail"
-                  type="button">
+          <button
+            class="btn btn-fail"
+            id="failBtn"
+            type="button">
+
             ✕ FAILED
+
           </button>
 
         </div>
 
-        <button id="resetRoundBtn"
-                class="text-button reset-inline"
-                type="button">
+        <!-- CANCEL ROUND -->
+
+        <button
+          class="text-button reset-inline"
+          id="resetRoundBtn"
+          type="button">
+
           Reset Current Round
+
         </button>
 
       </section>
 
+      <!-- SIDE SETTINGS -->
+
       <div class="side-panels">
 
-        <!-- TIMER DURATION -->
+        <!-- TIMER SETTINGS -->
 
         <section class="panel settings-panel">
 
@@ -312,36 +481,44 @@
           </div>
 
           <label>
+
             Time for next round (MM:SS)
 
-            <input id="durationInput"
-                   type="text"
-                   value="02:00"
-                   maxlength="5"
-                   placeholder="00:20">
+            <input
+              id="durationInput"
+              type="text"
+              value="02:00"
+              maxlength="5"
+              placeholder="00:20">
+
           </label>
 
           <div class="sample-times">
+
             Examples:
-            <b>00:20</b> = 20 seconds,
-            <b>01:30</b> = 90 seconds,
-            <b>02:00</b> = 2 minutes.
+            00:20 = 20 seconds,
+            01:30 = 90 seconds,
+            02:00 = 2 minutes
+
           </div>
 
-          <button id="saveDurationBtn"
-                  class="btn btn-outline"
-                  type="button">
+          <button
+            class="btn btn-outline"
+            id="saveDurationBtn"
+            type="button">
+
             Save Timer Duration
+
           </button>
 
           <small class="muted">
-            Saved duration applies to new rounds.
-            To use 20 seconds, enter 00:20.
+            Saved settings apply to
+            future rounds.
           </small>
 
         </section>
 
-        <!-- CHOCOLATE STOCK -->
+        <!-- CHOCOLATE INVENTORY -->
 
         <section class="panel settings-panel">
 
@@ -352,81 +529,118 @@
           <div class="inventory">
 
             <div>
-              <span>TOTAL STOCK</span>
-              <strong id="stock">—</strong>
+
+              <span>
+                TOTAL STOCK
+              </span>
+
+              <strong id="stock">
+                —
+              </strong>
+
             </div>
 
             <div>
-              <span>REMAINING</span>
-              <strong id="remainingStock">—</strong>
+
+              <span>
+                REMAINING
+              </span>
+
+              <strong id="remainingStock">
+                —
+              </strong>
+
             </div>
 
           </div>
 
           <label>
+
             Total chocolates available
 
-            <input id="stockInput"
-                   type="number"
-                   min="0"
-                   step="1"
-                   placeholder="e.g. 200">
+            <input
+              id="stockInput"
+              type="number"
+              min="0"
+              step="1"
+              placeholder="e.g. 200">
+
           </label>
 
-          <button id="stockBtn"
-                  class="btn btn-outline"
-                  type="button">
+          <button
+            class="btn btn-outline"
+            id="stockBtn"
+            type="button">
+
             Save Chocolate Stock
+
           </button>
 
           <small class="muted">
-            This is the existing Timer Game
-            inventory, not yet one shared
-            inventory for all three games.
+            This is the existing Timer
+            inventory. A unified stock
+            for all four games has not
+            yet been implemented.
           </small>
 
         </section>
 
       </div>
+
     </div>
 
-    <!-- HISTORY AND EXPORT -->
+    <!-- HISTORY -->
 
     <section class="panel history-panel">
 
       <div class="history-heading">
 
         <div>
+
           <div class="section-label">
             04 / CHOCOLATE RECORDS
           </div>
 
           <p class="muted">
-            Recorded WON and FAILED rounds.
+            Recorded Won and Failed results.
           </p>
+
         </div>
 
         <div class="history-actions">
 
-          <button id="csvBtn"
-                  class="btn btn-outline btn-sm"
-                  type="button">
+          <!-- CSV -->
+
+          <button
+            class="btn btn-outline btn-sm"
+            id="csvBtn"
+            type="button">
+
             ↓ Export CSV
+
           </button>
 
-          <button id="resetHistoryBtn"
-                  class="btn btn-danger btn-sm"
-                  type="button">
+          <!-- RESET HISTORY -->
+
+          <button
+            class="btn btn-danger btn-sm"
+            id="resetHistoryBtn"
+            type="button">
+
             Reset All Played Records
+
           </button>
 
         </div>
+
       </div>
 
       <div class="table-scroll">
 
         <table>
+
           <thead>
+
             <tr>
               <th>TIME</th>
               <th>ROUND</th>
@@ -434,14 +648,19 @@
               <th>CHOCOLATE</th>
               <th>TIME USED</th>
             </tr>
+
           </thead>
 
           <tbody id="records">
+
             <tr>
+
               <td colspan="5">
                 No records yet
               </td>
+
             </tr>
+
           </tbody>
 
         </table>
@@ -450,9 +669,11 @@
 
     </section>
 
-    <p id="actionMessage"
-       class="action-message admin-message"
-       role="status"></p>
+    <p
+      id="actionMessage"
+      class="action-message admin-message"
+      role="status"
+      aria-live="polite"></p>
 
   </section>
 
@@ -462,17 +683,19 @@
   EDEX EXPERIENCE ✦ TIMER CHALLENGE ADMIN
 </footer>
 
-<!-- EXISTING FIREBASE LIBRARIES -->
+<!-- FIREBASE -->
 
 <script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-app-compat.js"></script>
+
 <script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-auth-compat.js"></script>
+
 <script src="https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore-compat.js"></script>
 
-<!-- KEEP EXISTING FIREBASE CONFIG -->
+<!-- KEEP EXISTING CONFIG -->
 
 <script src="firebase-config.js"></script>
 
-<!-- KEEP EXISTING TIMER LOGIC -->
+<!-- KEEP EXISTING TIMER FUNCTIONS -->
 
 <script src="app.js"></script>
 
